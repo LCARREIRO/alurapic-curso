@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from '../token/token.service';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 import * as jwt_decode from 'jwt-decode';
 
 import { User } from './user';
@@ -8,7 +8,9 @@ import { User } from './user';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-  private userSubject = new Subject<User>();
+  // BehaviorSubject emite e armazena a informação até que alguém se inscreva (subscribe) e pegue a última informação.
+  // Subject emite a informação e não armazena.
+  private userSubject = new BehaviorSubject<User>(null);
 
   constructor(private tokenService: TokenService) {
     this.tokenService.hasToken() && this.decodeAndNotify();
