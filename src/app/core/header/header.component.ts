@@ -6,6 +6,7 @@ import { User } from '../user/user';
 
 @Component({
   selector: 'ap-header',
+  styleUrls: ['./header.component.scss'],
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
