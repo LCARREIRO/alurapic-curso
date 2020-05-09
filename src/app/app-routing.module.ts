@@ -20,6 +20,7 @@ const routes: Routes = [
     path: 'signup',
     component: SignUpComponent
   },
+
   {
     path: 'user/:userName',
     component: PhotoListComponent,
