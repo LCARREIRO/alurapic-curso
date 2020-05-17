@@ -1,3 +1,4 @@
+import { HomeRoutingModule } from './home/home.routing.module';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,9 +7,6 @@ import { AppComponent } from './app.component';
 
 import { ErrorsModule } from './errors/errors.module';
 import { PhotosModule } from './photos/photos.module';
-import { HomeModule } from './home/home.module';
-
-
 
 @NgModule({
   declarations: [
@@ -18,11 +16,9 @@ import { HomeModule } from './home/home.module';
   imports: [
     BrowserModule,
     ErrorsModule,
-    AppRoutingModule,
     PhotosModule,
-    HomeModule,
-    CoreModule
-
+    CoreModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

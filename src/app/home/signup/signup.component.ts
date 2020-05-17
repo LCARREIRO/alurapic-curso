@@ -8,7 +8,8 @@ import { SignUpService } from './signup.service';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './signup.component.html'
+  templateUrl: './signup.component.html',
+  providers: [UserNotTakenValidatorService]
 })
 export class SignUpComponent implements OnInit {
 
