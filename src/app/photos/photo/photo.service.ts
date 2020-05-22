@@ -21,6 +21,7 @@ export class PhotoService {
   }
 
   upload(description: string, allowComments: boolean, file: File) {
+
     const formData = new FormData();
 
     formData.append('description', description);
