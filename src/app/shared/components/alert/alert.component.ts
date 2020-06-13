@@ -28,13 +28,13 @@ export class AlertComponent {
     this.alerts = this.alerts.filter(alert => alert !== alertToRemove);
   }
 
-  getAlerClass(alert: Alert) {
+  getAlertClass(alert: Alert) {
     if (!alert) {
       return;
     }
 
     switch (alert.alertType) {
-      case AlertType.SECCESS:
+      case AlertType.SUCCESS:
         return 'alert alert-success';
 
       case AlertType.DANGER:

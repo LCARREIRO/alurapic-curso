@@ -1,10 +1,14 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Pipe } from '@angular/core';
 
 import { Photo } from './photo';
 import { PhotoComment } from '../photo-details/photo-comment';
+import { map, catchError } from 'rxjs/operators';
+import { of, throwError } from 'rxjs';
 
-const API = 'http://localhost:3000';
+
+const API = environment.apiUrl;
 
 @Injectable({ providedIn: 'root' })
 export class PhotoService {
@@ -47,5 +51,14 @@ export class PhotoService {
 
   removePhoto(photoId: number) {
     return this.http.delete(API + '/photos/' + photoId);
+  }
+
+  like(photoId: number) {
+    return this.http.post(API + '/photos/' + photoId + '/like', {}, { observe: 'response' }
+    )
+      .pipe(map(res => true))
+      .pipe(catchError(err => {
+        return err.status === '304' ? of(false) : throwError(err);
+      }));
   }
 }
