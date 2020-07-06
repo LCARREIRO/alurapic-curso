@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './auth/request.interceptor';
 import { AlertModule } from '../shared/components/alert/alert.module';
+import { MenuModule } from '../shared/components/menu/menu.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AlertModule } from '../shared/components/alert/alert.module';
   imports: [
     CommonModule,
     RouterModule,
-    AlertModule
+    AlertModule,
+    MenuModule
   ],
 
   providers: [

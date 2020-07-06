@@ -2,26 +2,26 @@
   <form [formGroup]='photoForm' (submit)="upload()" class="row">
     <div class="col-md-6 text-center">
       <div class="formGroup" *ngIf="!preview; else previewImage">
-      <button immediateClick type="button" (click)="fileInput.click()" class="btn btn-primary">
-        <i class="fa fa-image fa-4x align-middle"></i>
-    </button>
-      <input
-          #fileInput
-          hidden
-          formControlName="file"
-          type="file"
-          accept="image/*"
-          (change)="handleFile($event.target.files[0])">
-      <ap-vmessage
-      text="Please, select a photo"
-      *ngIf="photoForm.get('file').errors?.required">
-    </ap-vmessage>
-  </div>
+        <button immediateClick type="button" (click)="fileInput.click()" class="btn btn-primary">
+          <i class="fa fa-image fa-4x align-middle"></i>
+        </button>
+        <input
+        #fileInput
+        hidden
+        formControlName="file"
+        type="file"
+        accept="image/*"
+        (change)="handleFile($event.target.files[0])">
+        <ap-vmessage
+        text="Please, select a photo"
+        *ngIf="photoForm.get('file').errors?.required">
+      </ap-vmessage>
+    </div>
     <ng-template #previewImage>
       <div class="text-center">
         <ap-photo [url]="preview" title="Preview">
         </ap-photo>
-     </div>
+      </div>
     </ng-template>
   </div>
 
@@ -48,11 +48,18 @@
   </label>
 </div>
 
-<button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary btn-block">
-  Upload
-</button>
+<div *ngIf="!percentDone; else percent">
+  <button [disabled]="photoForm.invalid" type="submit" class="btn btn-primary btn-block">
+    Upload
+  </button>
 
-<a class="btn btn-secondary btn-block">Cancel</a>
+  <a [routerLink]="['']" class="btn btn-secondary btn-block">Cancel</a>
+</div>
+<ng-template #percent>
+<div class="text-center display-4">
+  uploading {{percentDone}}%
+</div>
+</ng-template>
 </div>
 </form>
 </div>
