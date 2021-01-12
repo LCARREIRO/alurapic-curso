@@ -1,3 +1,4 @@
+import { ShowIfLoggedModule } from './../shared/directives/show-if-logged/shiow-if-logged.module';
 import { FooterComponent } from './footer/footer.component';
 import { NgModule } from '@angular/core';
 
@@ -25,7 +26,8 @@ import { MenuModule } from '../shared/components/menu/menu.module';
     CommonModule,
     RouterModule,
     AlertModule,
-    MenuModule
+    MenuModule,
+    ShowIfLoggedModule
   ],
 
   providers: [
