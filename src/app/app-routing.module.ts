@@ -1,3 +1,4 @@
+import { GlobalErrorComponent } from './errors/global-error/global-error.component';
 import { AuthGuard } from './core/auth/login.guard copy';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -45,6 +46,14 @@ const routes: Routes = [
     component: PhotoDetailsComponent,
     data: {
       title: 'Photo detail'
+    }
+  },
+
+  {
+    path: 'error',
+    component: GlobalErrorComponent,
+    data: {
+      title: 'Error'
     }
   },
 
